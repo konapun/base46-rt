@@ -1,5 +1,5 @@
 ## NvChad theme plugin
-This is a plugin to allow creating custom nvchad base64 themes at runtime from terminal colors
+This is a plugin to allow creating custom nvchad base46 themes at runtime from terminal colors
 
 ### Installing
 
@@ -7,16 +7,16 @@ This is a plugin to allow creating custom nvchad base64 themes at runtime from t
 #### Packer
 
 ### How to use
-To create a theme, call `base64rt.theme` and pass it type (`light|dark`) and a table of terminal
+To create a theme, call `base46rt.theme` and pass it type (`light|dark`) and a table of terminal
 colors. Base16 and base30 colors will be automatically generated based on a lighten/darken algorithm.
 
-Once your theme is created, register it with nvchad by calling `base64rt.register`.
+Once your theme is created, register it with nvchad by calling `base46rt.register`.
 
 #### Use a base16 palette as a source
 ```lua
-local base64rt = require("base64-rt")
+local base46 = require("base46-rt")
 
-local theme = base64.theme("dark", {
+local theme = base46.theme("dark", {
     base00 = "#20202A",
     base01 = "#2c2e3e",
     base02 = "#3D4059",
@@ -35,14 +35,14 @@ local theme = base64.theme("dark", {
     base0F = "#eAc1c1",
 })
 
-base64.register(theme)
+base46.register("my-custom-theme", theme)
 ```
 
 #### Use a terminal palette as a source
 ```lua
-local base64rt = require("base64-rt")
+local base46 = require("base46-rt")
 
-local base16_colors = base64.from_terminal({
+local base16_colors = base46.from_terminal({
     black = "#282828",
     red = "#cc241d",
     green = "#98971a",
@@ -52,7 +52,7 @@ local base16_colors = base64.from_terminal({
     cyan = "#689d6a",
     white = "#a89984",
 })
-local theme = base64.theme("dark", base16_colors)
+local theme = base46.theme("dark", base16_colors)
 
-base64.register(theme)
+base46.register("my-custom-theme", theme)
 ```
