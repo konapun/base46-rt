@@ -1,16 +1,12 @@
-## NvChad theme plugin
-This is a plugin to allow creating custom nvchad base46 themes at runtime from terminal colors
+## Base46 theme plugin
+This is a plugin to allow creating custom nvchad base46 themes at runtime from multiple color sources. Base46 is the theme format for nvchad so use of this package has only been tested there.
 
 ### Installing
-
-#### Lazy.nvim
-#### Packer
+Just include `"konapun/base46-rt"` in your plugin manager. It doesn't have to be loaded because it will be loaded manually upon use. 
 
 ### How to use
-To create a theme, call `base46rt.theme` and pass it type (`light|dark`) and a table of terminal
-colors. Base16 and base30 colors will be automatically generated based on a lighten/darken algorithm.
-
-Once your theme is created, register it with nvchad by calling `base46rt.register`.
+You can create a theme using either terminal colors or base16 colors. Once your theme is created, simply return it from your
+theme file.
 
 #### Use a base16 palette as a source
 ```lua
@@ -35,7 +31,7 @@ local theme = base46.theme("dark", {
     base0F = "#eAc1c1",
 })
 
-base46.register("my-custom-theme", theme)
+return theme
 ```
 
 #### Use a terminal palette as a source
@@ -53,6 +49,5 @@ local base16_colors = base46.from_terminal({
     white = "#a89984",
 })
 local theme = base46.theme("dark", base16_colors)
-
-base46.register("my-custom-theme", theme)
+return theme
 ```
