@@ -5,8 +5,7 @@ This is a plugin to allow creating custom nvchad base46 themes at runtime from m
 Just include `"konapun/base46-rt"` in your plugin manager. It doesn't have to be loaded because it will be loaded manually upon use. 
 
 ### How to use
-You can create a theme using either terminal colors or base16 colors. Once your theme is created, simply return it from your
-theme file.
+You can create a theme using base16 colors or one of the available scheme generators. Once your theme is created, simply return it from your theme file.
 
 #### Use a base16 palette as a source
 ```lua
@@ -34,11 +33,14 @@ local theme = base46.theme("dark", {
 return theme
 ```
 
-#### Use a terminal palette as a source
+### Color generation algorithms
+#### Term colors 
+Uses a table of term colors to generate base46 theme.
+
 ```lua
 local base46 = require("base46-rt")
 
-local base16_colors = base46.from_terminal({
+local base16_colors = base46.scheme.terminal({
     black = "#282828",
     red = "#cc241d",
     green = "#98971a",
@@ -48,6 +50,56 @@ local base16_colors = base46.from_terminal({
     cyan = "#689d6a",
     white = "#a89984",
 })
+local theme = base46.theme("dark", base16_colors)
+return theme
+```
+
+#### Term colors (Extended)
+Uses a table of terminal colors along with their "bright" versions to generate a base46 theme.
+
+```lua
+local base46 = require("base46-rt")
+
+local base16_colors = base46.scheme.terminal_extended({
+    black = "#282828",
+    bright_black = "#928374",
+    red = "#cc241d",
+    bright_red = "#fb4934",
+    green = "#98971a",
+    bright_green = "#b8bb26",
+    yellow = "#d79921",
+    bright_yellow = "#fabd2f",
+    blue = "#458588",
+    bright_blue = "#83a598",
+    purple = "#b16286",
+    bright_purple = "#d3869b",
+    cyan = "#689d6a",
+    bright_cyan = "#8ec07c",
+    white = "#a89984",
+    bright_white = "#ebdbb2",
+})
+local theme = base46.theme("dark", base16_colors)
+return theme
+```
+
+#### Image
+Extracts colors from an image to use as a source for generating a base46 theme.
+
+```lua
+local base46 = require("base46-rt")
+
+local base16_colors = base46.scheme.image("/Users/konapun/Pictures/wallpaper/my-image.png")
+local theme = base46.theme("dark", base16_colors)
+return theme
+```
+
+#### Monochrome
+Uses a single color to generate a base46 theme (a la oldschool ttys).
+
+```lua
+local base46 = require("base46-rt")
+
+local base16_colors = base46.scheme.monochrome("#00ff00")
 local theme = base46.theme("dark", base16_colors)
 return theme
 ```
