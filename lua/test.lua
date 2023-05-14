@@ -66,9 +66,9 @@ local base16test = {
   base0F = "#eAc1c1",
 }
 
-local monochrome = "#86B42B"
+local monochrome = "#00db96"
 
-local monoscheme = base46.scheme.monochrome(monochrome)
+local monoscheme = base46.scheme.monochrome(monochrome, 2)
 local termscheme = base46.scheme.terminal(term)
 local theme = base46.theme("dark", monoscheme)
 
