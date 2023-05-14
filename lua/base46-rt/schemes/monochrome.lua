@@ -1,14 +1,14 @@
 local utils = require("base46-rt.colors")
 
 local function color_to_base16(color)
-  local black = utils.darken(color, 90)
-  local white = utils.lighten(color, 90)
+  local black = utils.darken(color, 40)
+  local white = utils.lighten(color, 35)
   local red = utils.darken(color, 20)
   local yellow = utils.lighten(color, 20)
   local green = color
-  local cyan = utils.darken(color, 40)
-  local blue = utils.darken(color, 50)
-  local purple = utils.darken(color, 60)
+  local cyan = utils.lighten(color, 10)
+  local blue = utils.darken(color, 10)
+  local purple = utils.darken(color, 30)
 
   return {
     base00 = black,

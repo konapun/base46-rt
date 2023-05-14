@@ -66,8 +66,11 @@ local base16test = {
   base0F = "#eAc1c1",
 }
 
-local colors = base46.from_terminal(term)
-local theme = base46.theme("dark", colors)
+local monochrome = "#86B42B"
+
+local monoscheme = base46.scheme.monochrome(monochrome)
+local termscheme = base46.scheme.terminal(term)
+local theme = base46.theme("dark", monoscheme)
 
 local file = assert(io.open("/Users/konapun/Desktop/termtest.lua", "w"))
 themeio.write_theme(theme, file)

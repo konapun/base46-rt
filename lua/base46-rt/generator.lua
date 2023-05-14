@@ -1,5 +1,4 @@
 local utils = require("base46-rt.colors")
-local default_scheme = require("base46-rt.schemes.default")
 
 local function base16_to_base30(base16)
   local black = base16.base00
