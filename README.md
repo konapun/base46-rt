@@ -1,3 +1,6 @@
+# WORK IN PROGRESS
+Don't use this yet
+
 ## Base46 theme plugin
 This is a plugin to allow creating custom nvchad base46 themes at runtime from multiple color sources. Base46 is the theme format for nvchad so use of this package has only been tested there.
 
