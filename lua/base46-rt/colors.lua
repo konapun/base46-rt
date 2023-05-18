@@ -65,7 +65,7 @@ local function mix(color1, color2)
 end
 
 local function utils_with_vibrancy(highlight, vibrancy)
-  highlight = highlight or "#ffff00"
+	highlight = highlight or "#ffff00"
 	vibrancy = vibrancy or 0
 	if vibrancy > intensity.DIM then
 		vibrancy = intensity.DIM
@@ -105,6 +105,6 @@ return {
 	lighten = lighten,
 	darken = darken,
 	mix = mix,
-	vibrancy = intensity,
+	intensity = intensity,
 	with_vibrancy = utils_with_vibrancy,
 }

@@ -1,12 +1,12 @@
 local utils = require("base46-rt.colors")
 
 local function color_to_base16(color, opts)
-  local vibrancy = opts and opts.vibrancy or 0
 	local color_utils = utils
-  if vibrancy then
-    local highlight = opts and opts.highlight or '#ffff00'
+	local vibrancy = opts and opts.vibrancy or 0
+	if vibrancy then
+		local highlight = opts and opts.highlight or "#ffff00"
 		color_utils = utils.with_vibrancy(highlight, vibrancy)
-  end
+	end
 
 	local black = color_utils.darken(color, 70)
 	local white = color_utils.lighten(color, 50)

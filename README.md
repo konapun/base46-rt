@@ -104,8 +104,12 @@ Uses a single color to generate a base46 theme (a la oldschool ttys).
   * `intensity`  Set an intensity for highlight mixing
 ```lua
 local base46 = require("base46-rt")
+local utils = require("base46-rt.colors")
 
-local base16_colors = base46.scheme.monochrome("#00ff00")
+local base16_colors = base46.scheme.monochrome("#00ff00", {
+    highlight = '#ffff00',
+    vibrancy = utils.intensity.HIGH,
+})
 local theme = base46.theme("dark", base16_colors)
 return theme
 ```
