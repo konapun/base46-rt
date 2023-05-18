@@ -99,6 +99,9 @@ return theme
 #### Monochrome
 Uses a single color to generate a base46 theme (a la oldschool ttys).
 
+##### Options
+  * `highlight` Mix a highlight color into the generated palette
+  * `intensity`  Set an intensity for highlight mixing
 ```lua
 local base46 = require("base46-rt")
 

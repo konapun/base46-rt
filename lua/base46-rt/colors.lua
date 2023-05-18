@@ -64,15 +64,13 @@ local function mix(color1, color2)
 	return rgb2hex(r, g, b)
 end
 
-local function utils_with_vibrancy(vibrancy)
+local function utils_with_vibrancy(highlight, vibrancy)
+  highlight = highlight or "#ffff00"
 	vibrancy = vibrancy or 0
 	if vibrancy > intensity.DIM then
 		vibrancy = intensity.DIM
 	end
 
-	local highlight = "#ffff00"
-
-	-- FIXME: intensity is inversed
 	local function with_highlight(color)
 		local mixed = color
 		if vibrancy > 0 then
